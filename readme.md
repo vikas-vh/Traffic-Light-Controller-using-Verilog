@@ -1,10 +1,10 @@
-Multi-Priority Traffic Light Controller (FSM)
+# **Multi-Priority Traffic Light Controller (FSM)**
 
-A robust Verilog implementation of a 4-way intersection traffic controller. This project utilizes a Finite State Machine (FSM) to manage complex traffic scenarios, including high-priority emergency vehicle overrides and low-traffic "Night Mode" operations.
+A robust Verilog implementation of a 4-way intersection traffic controller. This project utilizes a Finite State Machine (FSM) to manage complex traffic scenarios, including high-priority emergency vehicle overrides, low-traffic "Night Mode" operation and Traffic rules violation.
 
 
 
-Features
+### **Features**
 
 * 4-Way Sequential Control: Standard Green-Yellow-Red cycle for four roads.
 
@@ -26,11 +26,9 @@ Features
 
 
 
-Technical Specifications
+### **Technical Specifications**
 
-FSM State Encoding
-
-The FSM is designed using a 4-bit state register to handle 14 unique states:
+FSM State Encoding :The FSM is designed using a 4-bit state register to handle 14 unique states:
 
 
 
@@ -46,9 +44,9 @@ The FSM is designed using a 4-bit state register to handle 14 unique states:
 
 
 
-Signal Definitions
+### **Signal Definitions:**
 
-Control Signals (The "Brains")
+#### **Control Signals (The "Brains")**
 
 * clk (Clock): The heartbeat of the system. Every transition (like changing from Green to Yellow) happens on the rising edge of this signal.
 
@@ -58,7 +56,7 @@ Control Signals (The "Brains")
 
 
 
-Input Sensors (The "Environment")
+#### **Input Sensors (The "Environment")**
 
 * A1, A2, A3, A4 (Ambulance Sensors): These represent high-priority sensors (like infrared or sound sensors) that detect an approaching emergency vehicle. If A1 is high, the system forces Road 1 to Green immediately to clear traffic.
 
@@ -72,7 +70,7 @@ Input Sensors (The "Environment")
 
 
 
-Status Outputs (The "Feedback")
+#### **Status Outputs (The "Feedback")**
 
 * state\_out: A 4-bit code that tells an external monitor or engineer exactly which state the internal logic is in (e.g., 0000 for Road 1 Green).
 
@@ -82,33 +80,28 @@ Status Outputs (The "Feedback")
 
 
 
-* Light Outputs (The "Visuals")
+#### **Light Outputs (The "Visuals")**
 
-R1\_light, R2\_light, R3\_light, R4\_light: These are the actual signals sent to the physical traffic light heads for each of the four roads.
-
-
-
-They are 24 bits wide because they carry ASCII characters: "G" for Green, "Y" for Yellow, and "R" for Red.
-
-This makes the simulation waveform very easy to read for humans.
+* R1\_light, R2\_light, R3\_light, R4\_light: These are the actual signals sent to the physical traffic light heads for each of the four roads.
 
 
 
-Signal Priority Summary Table
+* They are 24 bits wide because they carry ASCII characters: "G" for Green, "Y" for Yellow, and "R" for Red.
+* This makes the simulation waveform very easy to read for humans.
 
-In your code, the logic follows this "Chain of Command":
 
 
+#### **Signal Priority Summary**
 
 Priority Level	Signal	Resulting Action
 
-1 (Highest)	A1-A4	Forces Green on the specific road for emergency passage.
+1.(Highest)	A1-A4	Forces Green on the specific road for emergency passage.
 
-2	night\_mode	Overrides normal cycle for flashing yellow caution.
+2\.	night\_mode	Overrides normal cycle for flashing yellow caution.
 
-3 (Lowest)	Normal Cycle	Cycles through Roads 1-4 using T\_GREEN and T\_YELLOW timers.
+3.(Lowest)	Normal Cycle	Cycles through Roads 1-4 using T\_GREEN and T\_YELLOW timers.
 
-Independent	violation\_force	Triggers the violation warning regardless of the current light color.
+4.Independent	violation\_force	Triggers the violation warning regardless of the current light color.
 
 
 
