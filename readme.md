@@ -2,6 +2,39 @@
 
 A robust Verilog implementation of a 4-way intersection traffic controller. This project utilizes a Finite State Machine (FSM) to manage complex traffic scenarios, including high-priority emergency vehicle overrides, low-traffic "Night Mode" operation and Traffic rules violation.
 
+#### 
+
+#### **Software Requirements**
+
+**To run and verify this project, you will need the following tools:**
+
+
+
+###### **1. Simulation (To run the code)**
+
+You can use any standard Verilog simulator. The most common open-source and professional options are:
+
+1. **Icarus Verilog** – A lightweight, open-source compiler and simulator. Highly recommended for beginners.
+2. **ModelSim / QuestaSim** – The industry-standard simulator from Siemens/Mentor Graphics.
+3. **Vivado Design Suite** – Used if you are targeting Xilinx FPGAs.
+
+
+
+###### **2. Waveform Viewer (To see the results)**
+
+To visualize the traffic light changes over time, you need a tool to view the .vcd (Value Change Dump) files:
+
+1. **GTKWave** – An open-source, fully-featured waveform viewer that works perfectly with Icarus Verilog.
+
+
+
+###### **3. Synthesis \& Hardware (To put it on an FPGA)**
+
+If you intend to deploy this FSM to physical hardware:
+
+1. **Xilinx Vivado** (for Artix/Kintex FPGAs)
+2. **Intel Quartus Prime** (for Cyclone/MAX FPGAs)
+
 
 
 ### **Features**
