@@ -4,13 +4,13 @@ A robust Verilog implementation of a 4-way intersection traffic controller. This
 
 #### 
 
-#### **Software Requirements**
+### **Software Requirements**
 
 **To run and verify this project, you will need the following tools:**
 
 
 
-###### **1. Simulation (To run the code)**
+#### **1. Simulation (To run the code)**
 
 You can use any standard Verilog simulator. The most common open-source and professional options are:
 
@@ -20,7 +20,7 @@ You can use any standard Verilog simulator. The most common open-source and prof
 
 
 
-###### **2. Waveform Viewer (To see the results)**
+#### **2. Waveform Viewer (To see the results)**
 
 To visualize the traffic light changes over time, you need a tool to view the .vcd (Value Change Dump) files:
 
@@ -28,7 +28,7 @@ To visualize the traffic light changes over time, you need a tool to view the .v
 
 
 
-###### **3. Synthesis \& Hardware (To put it on an FPGA)**
+#### **3. Synthesis \& Hardware (To put it on an FPGA)**
 
 If you intend to deploy this FSM to physical hardware:
 
